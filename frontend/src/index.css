@@ -1,0 +1,299 @@
+:root {
+  /* Dark theme variables (default) */
+  --bg-primary: #232136;
+  --bg-secondary: rgba(40, 38, 60, 0.35);
+  --bg-input: rgba(40, 38, 60, 0.25);
+  --text-primary: #fff;
+  --text-secondary: #bbb;
+  --border-color: rgba(50, 18, 195, 0.207);
+  --scrollbar-bg: #28225e;
+  --scrollbar-thumb: #150d4d;
+  --navbar-bg: rgba(40, 38, 60, 0.95);
+  --card-shadow: rgba(31, 38, 135, 0.37);
+}
+
+[data-theme="light"] {
+  /* Light theme variables */
+  --bg-primary: #f8f9fa;
+  --bg-secondary: rgba(255, 255, 255, 0.9);
+  --bg-input: rgba(255, 255, 255, 0.8);
+  --text-primary: #212529;
+  --text-secondary: #6c757d;
+  --border-color: rgba(81, 81, 81, 0.2);
+  --scrollbar-bg: #2a2d2a;
+  --scrollbar-thumb: #dee2e6;
+  --navbar-bg: rgba(255, 255, 255, 0.95);
+  --card-shadow: rgba(0, 0, 0, 0.1);
+}
+
+body, #root {
+  min-height: 100vh;
+  background: var(--bg-primary);
+  font-family: 'Inter', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.3s ease;
+}
+
+.glass-home-bg {
+  min-height: 100vh;
+  background: var(--bg-primary);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  position: relative;
+  transition: background-color 0.3s ease;
+}
+
+.glass-card, .modal-content {
+  border-radius: 24px !important;
+  background: var(--bg-secondary) !important;
+  box-shadow: 0 8px 32px 0 var(--card-shadow) !important;
+  backdrop-filter: blur(16px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
+  border: 1.5px solid var(--border-color) !important;
+  color: var(--text-primary) !important;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.card-title, .modal-title, h1, h2, h3, h4, h5, h6 {
+  color: var(--text-primary) !important;
+  transition: color 0.3s ease;
+}
+
+input, textarea, select, .form-control {
+  background: var(--bg-input) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--border-color) !important;
+  transition: all 0.3s ease;
+}
+
+input::placeholder, textarea::placeholder {
+  color: var(--text-secondary) !important;
+  opacity: 1;
+}
+
+.btn, .btn-primary, .btn-success, .btn-outline-primary, .btn-outline-danger, .btn-secondary {
+  border-radius: 12px !important;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.progress, .progress-bar {
+  background: var(--border-color) !important;
+  border-radius: 8px !important;
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  background: var(--scrollbar-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 8px;
+}
+
+/* Theme toggle button styles */
+.theme-toggle-btn {
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  font-size: 1.2rem;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+}
+
+.theme-toggle-btn:hover {
+  background: var(--border-color);
+  transform: scale(1.1);
+}
+
+/* Navbar theme-specific styles */
+.navbar {
+  transition: background-color 0.3s ease;
+}
+
+.navbar-dark {
+  background-color: var(--navbar-bg) !important;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: var(--text-primary) !important;
+  transition: color 0.3s ease;
+}
+
+.navbar-dark .navbar-brand {
+  color: var(--text-primary) !important;
+  transition: color 0.3s ease;
+}
+
+/* Fix navbar text colors for light mode */
+[data-theme="light"] .navbar-dark .navbar-nav .nav-link {
+  color: #212529 !important;
+}
+
+[data-theme="light"] .navbar-dark .navbar-brand {
+  color: #212529 !important;
+}
+
+[data-theme="light"] .navbar-dark .nav-link.text-light {
+  color: #212529 !important;
+}
+
+[data-theme="light"] .navbar-dark .btn-outline-light {
+  color: #212529 !important;
+  border-color: #212529 !important;
+}
+
+[data-theme="light"] .navbar-dark .btn-outline-light:hover {
+  background-color: #212529 !important;
+  color: #fff !important;
+}
+
+/* Modern navbar hover effects */
+.navbar .nav-link:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+  transform: translateY(-1px);
+}
+
+[data-theme="light"] .navbar .nav-link:hover {
+  background: rgba(0, 0, 0, 0.05) !important;
+  transform: translateY(-1px);
+}
+
+.navbar .btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+[data-theme="light"] .navbar .btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Additional text color fixes */
+p, span, div, small, label, .form-text {
+  color: var(--text-primary) !important;
+  transition: color 0.3s ease;
+}
+
+/* Alert and form text colors */
+.alert {
+  color: var(--text-primary) !important;
+}
+
+.alert-danger {
+  background-color: rgba(220, 53, 69, 0.1) !important;
+  border-color: rgba(220, 53, 69, 0.3) !important;
+}
+
+.alert-success {
+  background-color: rgba(25, 135, 84, 0.1) !important;
+  border-color: rgba(25, 135, 84, 0.3) !important;
+}
+
+.alert-info {
+  background-color: rgba(13, 202, 240, 0.1) !important;
+  border-color: rgba(13, 202, 240, 0.3) !important;
+}
+
+/* Button link colors */
+.btn-link {
+  color: var(--text-primary) !important;
+  text-decoration: none;
+}
+
+.btn-link:hover {
+  color: var(--text-secondary) !important;
+}
+
+/* Modal backdrop */
+.modal-backdrop {
+  background-color: rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Toast container */
+.toast-container {
+  z-index: 9999;
+}
+
+/* Loading text */
+.text-white {
+  color: var(--text-primary) !important;
+}
+
+/* Card text elements */
+.card-text, .card-body p, .card-body small, .card-body strong {
+  color: var(--text-primary) !important;
+}
+
+/* Form labels and text */
+.form-label, .form-text {
+  color: var(--text-primary) !important;
+}
+
+/* Badge colors */
+.badge {
+  color: var(--text-primary) !important;
+}
+
+/* Input group text */
+.input-group-text {
+  background: var(--bg-input) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--border-color) !important;
+}
+
+/* Search input focus effects */
+input:focus, .form-control:focus {
+  box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25) !important;
+  border-color: #667eea !important;
+}
+
+/* Navbar responsive improvements */
+@media (max-width: 768px) {
+  .navbar .nav-link {
+    margin: 4px 0 !important;
+  }
+  
+  .navbar .btn {
+    margin: 4px 0 !important;
+  }
+}
+
+/* Hero section animations */
+@keyframes float {
+  0%, 100% { 
+    transform: translateY(0px) rotate(3deg); 
+  }
+  50% { 
+    transform: translateY(-20px) rotate(3deg); 
+  }
+}
+
+@keyframes float-reverse {
+  0%, 100% { 
+    transform: translateY(0px) rotate(-2deg) translateY(-20px); 
+  }
+  50% { 
+    transform: translateY(-20px) rotate(-2deg) translateY(-20px); 
+  }
+}
+
+.float-animation {
+  animation: float 6s ease-in-out infinite;
+}
+
+.float-animation-reverse {
+  animation: float-reverse 6s ease-in-out infinite;
+} 
